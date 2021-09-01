@@ -20,8 +20,8 @@ namespace IMessangerCoreAPI.Controllers
             _sender = sender;
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<Guid>> Search(IEnumerable<Guid> clientIds)
+        [HttpPost("/search")]
+        public async Task<IEnumerable<Guid>> Search([FromBody] IEnumerable<Guid> clientIds)
         {
             var query = new GetDiaglogsByClientListQuery(clientIds);
             return await _sender.Send(query);
