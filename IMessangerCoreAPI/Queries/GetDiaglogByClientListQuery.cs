@@ -18,7 +18,7 @@ namespace IMessangerCoreAPI.Queries
         public IEnumerable<Guid> ClientIds { get; set; }
     }
 
-    public class GetDiaglogsByClientListQueryHandler : IRequestHandler<GetDiaglogByClientListQuery, Guid>
+    public class GetDiaglogByClientListQueryHandler : IRequestHandler<GetDiaglogByClientListQuery, Guid>
     {
         public async Task<Guid> Handle(GetDiaglogByClientListQuery request, CancellationToken cancellationToken)
         {
