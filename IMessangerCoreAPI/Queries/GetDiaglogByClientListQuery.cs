@@ -26,7 +26,7 @@ namespace IMessangerCoreAPI.Queries
 
             var dialogs = query.GroupBy(c => c.IDRGDialog); // get dialogs
 
-            var result = dialogs.FirstOrDefault(d => request.ClientIds.All(c => d.Select(_d => _d.IDClient).Contains(c)))?.First(); // get dialog by query
+            var result = dialogs.OrderBy(d => d.Count()).FirstOrDefault(d => request.ClientIds.All(c => d.Select(_d => _d.IDClient).Contains(c)))?.First(); // get dialog by query
 
             if (result == null)
                 return Guid.Empty;
